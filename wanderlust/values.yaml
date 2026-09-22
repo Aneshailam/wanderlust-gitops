@@ -1,0 +1,45 @@
+backend:
+  replicaCount: 1
+
+  image:
+    repository: aneshailam/wanderlust-backend
+    tag: "18"
+    pullPolicy: IfNotPresent
+
+  service:
+    port: 8080
+
+  env:
+    PORT: "8080"
+    MONGODB_URI: "mongodb://mongodb:27017/wanderlust"
+    REDIS_URL: "redis://redis:6379"
+    FRONTEND_URL: "http://wanderlust.local"
+    BACKEND_URL: "http://wanderlust.local"
+    NODE_ENV: "Production"
+
+frontend:
+  replicaCount: 1
+
+  image:
+    repository: aneshailam/wanderlust-frontend
+    tag: "19"
+    pullPolicy: IfNotPresent
+
+  service:
+    port: 80
+
+mongodb:
+  image: mongo:7
+  port: 27017
+
+  persistence:
+    size: 2Gi
+
+redis:
+  image: redis:7
+  port: 6379
+
+ingress:
+  enabled: true
+  className: alb
+  host: wanderlust.local
