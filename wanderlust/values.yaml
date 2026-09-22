@@ -42,4 +42,4 @@ redis:
 ingress:
   enabled: true
   className: alb
-  host: wanderlust.local
+  host: ""
