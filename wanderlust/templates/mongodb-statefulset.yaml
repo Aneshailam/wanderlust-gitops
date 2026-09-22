@@ -27,6 +27,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
+        storageClassName: gp2 
         resources:
           requests:
             storage: {{ .Values.mongodb.persistence.size }}
