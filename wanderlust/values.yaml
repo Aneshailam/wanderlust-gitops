@@ -22,7 +22,7 @@ frontend:
 
   image:
     repository: aneshailam/wanderlust-frontend
-    tag: "19"
+    tag: "20"
     pullPolicy: IfNotPresent
 
   service:
